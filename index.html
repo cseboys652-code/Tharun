@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Adhiparadakthi Engineering College</title>
+<title>Adhiparasakthi Engineering College</title>
 
 <style>
 body {
@@ -11,14 +11,14 @@ body {
     background: #f2f2f2;
 }
 
-/* LOGIN PAGE */
-#loginPage {
+/* LOGIN */
+#login {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
 .box {
-    width: 300px;
+    width: 320px;
     margin: auto;
     padding: 20px;
     background: white;
@@ -33,8 +33,8 @@ input {
 }
 
 button {
-    padding: 10px;
     width: 100%;
+    padding: 10px;
     background: #c00000;
     color: white;
     border: none;
@@ -45,8 +45,8 @@ button:hover {
     background: darkred;
 }
 
-/* HOME PAGE */
-#homePage {
+/* HOME */
+#home {
     display: none;
     text-align: center;
 }
@@ -58,15 +58,15 @@ header {
 }
 
 .card {
-    background: white;
     width: 60%;
     margin: 30px auto;
+    background: white;
     padding: 20px;
     border-radius: 10px;
 }
 
 img {
-    width: 120px;
+    width: 140px;
     margin-top: 10px;
 }
 </style>
@@ -75,12 +75,13 @@ img {
 <body>
 
 <!-- LOGIN PAGE -->
-<div id="loginPage">
+<div id="login">
+
     <div class="box">
 
         <img src="logo.png" alt="College Logo">
 
-        <h2>Adhiparadakthi Engineering College</h2>
+        <h2>Adhiparasakthi Engineering College</h2>
         <p>Melmaruvathur</p>
 
         <input type="text" id="user" placeholder="Username">
@@ -91,14 +92,15 @@ img {
         <p id="msg"></p>
 
     </div>
+
 </div>
 
 <!-- HOME PAGE -->
-<div id="homePage">
+<div id="home">
 
 <header>
     <h1>Welcome to College Portal</h1>
-    <p>Adhiparadakthi Engineering College, Melmaruvathur</p>
+    <p>Adhiparasakthi Engineering College, Melmaruvathur</p>
 </header>
 
 <img src="logo.png">
@@ -118,10 +120,10 @@ function login() {
     let p = document.getElementById("pass").value;
 
     if(u === "admin" && p === "1234") {
-        document.getElementById("loginPage").style.display = "none";
-        document.getElementById("homePage").style.display = "block";
+        document.getElementById("login").style.display = "none";
+        document.getElementById("home").style.display = "block";
     } else {
-        document.getElementById("msg").innerText = "Invalid username or password!";
+        document.getElementById("msg").innerText = "Invalid login!";
     }
 }
 </script>
