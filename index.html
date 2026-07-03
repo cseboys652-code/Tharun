@@ -2,23 +2,26 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Adhiparasakthi Engineering College</title>
 
 <style>
 body {
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     margin: 0;
-    background: linear-gradient(120deg, #f2f2f2, #e6e6e6);
+    background: #f2f2f2;
 }
 
-/* LOGIN */
+/* LOGIN PAGE */
 #login {
     text-align: center;
-    margin-top: 80px;
+    margin-top: 60px;
+    padding: 10px;
 }
 
 .box {
-    width: 320px;
+    width: 90%;
+    max-width: 360px;
     margin: auto;
     padding: 25px;
     background: white;
@@ -26,8 +29,15 @@ body {
     box-shadow: 0 0 12px rgba(0,0,0,0.2);
 }
 
+/* LOGO */
+.box img {
+    width: 110px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
 input {
-    width: 90%;
+    width: 95%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
@@ -40,15 +50,15 @@ button {
     background: #c00000;
     color: white;
     border: none;
-    cursor: pointer;
     border-radius: 6px;
+    cursor: pointer;
 }
 
 button:hover {
     background: darkred;
 }
 
-/* HOME */
+/* HOME PAGE */
 #home {
     display: none;
     text-align: center;
@@ -61,17 +71,17 @@ header {
 }
 
 .card {
-    width: 60%;
-    margin: 30px auto;
+    width: 85%;
+    max-width: 600px;
+    margin: 20px auto;
     background: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-img {
+.home-logo {
     width: 120px;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 </style>
 </head>
@@ -80,9 +90,9 @@ img {
 
 <!-- LOGIN PAGE -->
 <div id="login">
-
     <div class="box">
 
+        <!-- IMPORTANT: logo.png must be in SAME folder as index.html -->
         <img src="logo.png" alt="College Logo">
 
         <h2>Adhiparasakthi Engineering College</h2>
@@ -96,18 +106,17 @@ img {
         <p id="msg" style="color:red;"></p>
 
     </div>
-
 </div>
 
 <!-- HOME PAGE -->
 <div id="home">
 
 <header>
-    <h1>Welcome to College Portal 🎓</h1>
+    <h1>Welcome to College Portal</h1>
     <p>Adhiparasakthi Engineering College, Melmaruvathur</p>
 </header>
 
-<img src="logo.png" alt="College Logo">
+<img class="home-logo" src="logo.png" alt="College Logo">
 
 <div class="card">
     <h2>Student Dashboard</h2>
@@ -120,19 +129,14 @@ img {
 
 <script>
 function login() {
-    let u = document.getElementById("user").value.trim();
-    let p = document.getElementById("pass").value.trim();
-
-    if(u === "" || p === "") {
-        document.getElementById("msg").innerText = "Please fill all fields!";
-        return;
-    }
+    let u = document.getElementById("user").value;
+    let p = document.getElementById("pass").value;
 
     if(u === "admin" && p === "1234") {
         document.getElementById("login").style.display = "none";
         document.getElementById("home").style.display = "block";
     } else {
-        document.getElementById("msg").innerText = "Invalid login!";
+        document.getElementById("msg").innerText = "Invalid username or password!";
     }
 }
 </script>
