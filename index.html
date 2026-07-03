@@ -1,57 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Simple Website</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #4facfe, #00f2fe);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+<meta charset="UTF-8">
+<title>Adhiparadakthi Engineering College</title>
 
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
-            text-align: center;
-            width: 300px;
-        }
+<style>
+body {
+    font-family: Arial;
+    margin: 0;
+    background: #f2f2f2;
+}
 
-        input {
-            width: 90%;
-            padding: 10px;
-            margin: 10px 0;
-        }
+/* LOGIN PAGE */
+#loginPage {
+    text-align: center;
+    margin-top: 100px;
+}
 
-        button {
-            padding: 10px 20px;
-            background: #4facfe;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
+.box {
+    width: 300px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+}
 
-        button:hover {
-            background: #0077ff;
-        }
-    </style>
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+button {
+    padding: 10px;
+    width: 100%;
+    background: #c00000;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darkred;
+}
+
+/* HOME PAGE */
+#homePage {
+    display: none;
+    text-align: center;
+}
+
+header {
+    background: #c00000;
+    color: white;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    width: 60%;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+img {
+    width: 120px;
+    margin-top: 10px;
+}
+</style>
 </head>
+
 <body>
 
-    <div class="container">
-        <h2>Login Page</h2>
-        <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password">
-        <button>Login</button>
+<!-- LOGIN PAGE -->
+<div id="loginPage">
+    <div class="box">
+
+        <img src="logo.png" alt="College Logo">
+
+        <h2>Adhiparadakthi Engineering College</h2>
+        <p>Melmaruvathur</p>
+
+        <input type="text" id="user" placeholder="Username">
+        <input type="password" id="pass" placeholder="Password">
+
+        <button onclick="login()">Login</button>
+
+        <p id="msg"></p>
+
     </div>
+</div>
+
+<!-- HOME PAGE -->
+<div id="homePage">
+
+<header>
+    <h1>Welcome to College Portal</h1>
+    <p>Adhiparadakthi Engineering College, Melmaruvathur</p>
+</header>
+
+<img src="logo.png">
+
+<div class="card">
+    <h2>Student Dashboard</h2>
+    <p>✔ Attendance</p>
+    <p>✔ Results</p>
+    <p>✔ Department Info</p>
+</div>
+
+</div>
+
+<script>
+function login() {
+    let u = document.getElementById("user").value;
+    let p = document.getElementById("pass").value;
+
+    if(u === "admin" && p === "1234") {
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("homePage").style.display = "block";
+    } else {
+        document.getElementById("msg").innerText = "Invalid username or password!";
+    }
+}
+</script>
 
 </body>
 </html>
