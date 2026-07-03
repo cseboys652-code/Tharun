@@ -20,16 +20,18 @@ body {
 .box {
     width: 320px;
     margin: auto;
-    padding: 20px;
+    padding: 25px;
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px gray;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
 }
 
 input {
     width: 90%;
     padding: 10px;
     margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
 }
 
 button {
@@ -39,6 +41,7 @@ button {
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 6px;
 }
 
 button:hover {
@@ -63,15 +66,12 @@ header {
     background: white;
     padding: 20px;
     border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* IMPORTANT FIX FOR IMAGE */
 img {
     width: 140px;
     margin-top: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 </style>
 </head>
@@ -83,8 +83,8 @@ img {
 
     <div class="box">
 
-        <!-- ✅ FIXED LOGO PATH -->
-        <img src="logo.png" alt="College Logo">
+        <!-- YOUR COLLEGE LOGO -->
+        <img src="logo.png" alt="College Logo" style="width:140px; display:block; margin:0 auto 10px auto;">
 
         <h2>Adhiparasakthi Engineering College</h2>
         <p>Melmaruvathur</p>
@@ -94,7 +94,7 @@ img {
 
         <button onclick="login()">Login</button>
 
-        <p id="msg"></p>
+        <p id="msg" style="color:red;"></p>
 
     </div>
 
@@ -104,12 +104,12 @@ img {
 <div id="home">
 
 <header>
-    <h1>Welcome to College Portal</h1>
+    <h1>Welcome to College Portal 🎓</h1>
     <p>Adhiparasakthi Engineering College, Melmaruvathur</p>
 </header>
 
-<!-- SAME LOGO -->
-<img src="logo.png" style="width:160px;">
+<!-- SAME LOGO IN HOME -->
+<img src="logo.png" alt="College Logo">
 
 <div class="card">
     <h2>Student Dashboard</h2>
@@ -122,8 +122,13 @@ img {
 
 <script>
 function login() {
-    let u = document.getElementById("user").value;
-    let p = document.getElementById("pass").value;
+    let u = document.getElementById("user").value.trim();
+    let p = document.getElementById("pass").value.trim();
+
+    if(u === "" || p === "") {
+        document.getElementById("msg").innerText = "Please fill all fields!";
+        return;
+    }
 
     if(u === "admin" && p === "1234") {
         document.getElementById("login").style.display = "none";
